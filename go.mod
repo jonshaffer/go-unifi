@@ -1,7 +1,8 @@
-module github.com/paultyng/go-unifi
+module github.com/jonshaffer/go-unifi
 
-go 1.22.1
-toolchain go1.23.1
+go 1.23.0
+
+toolchain go1.24.9
 
 require (
 	github.com/golangci/golangci-lint v1.64.4
