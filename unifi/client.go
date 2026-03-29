@@ -160,7 +160,11 @@ type LegacyResponse[T any] struct {
 	} `json:"meta"`
 }
 
-// doLegacy executes an HTTP request against the legacy REST API and unwraps the response.
+// DoLegacy executes an HTTP request against the legacy REST API and unwraps the response.
+func DoLegacy[T any](c *Client, ctx context.Context, method string, path string, body any) ([]T, error) {
+	return doLegacy[T](c, ctx, method, path, body)
+}
+
 func doLegacy[T any](c *Client, ctx context.Context, method string, path string, body any) ([]T, error) {
 	var resp LegacyResponse[T]
 	if err := c.do(ctx, method, AppNetwork, path, body, &resp); err != nil {
