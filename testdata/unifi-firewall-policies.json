@@ -1,0 +1,1352 @@
+{
+  "offset": 0,
+  "limit": 25,
+  "count": 25,
+  "totalCount": 94,
+  "data": [
+    {
+      "id": "9c3a0686-2508-48ed-8aff-debd66f99de2",
+      "enabled": true,
+      "name": "Management Admin Access",
+      "index": 10000,
+      "action": {
+        "type": "ALLOW",
+        "allowReturnTraffic": true
+      },
+      "source": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "NETWORK",
+          "networkFilter": {
+            "networkIds": [
+              "cc212f02-2406-432e-a394-d46dd8358955"
+            ],
+            "matchOpposite": false
+          }
+        }
+      },
+      "destination": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0"
+      },
+      "ipProtocolScope": {
+        "ipVersion": "IPV4"
+      },
+      "loggingEnabled": false,
+      "metadata": {
+        "origin": "USER_DEFINED"
+      }
+    },
+    {
+      "id": "de442afd-9a0d-4bd3-bb75-949622f31758",
+      "enabled": true,
+      "name": "Trusted to Home Assistant",
+      "index": 10003,
+      "action": {
+        "type": "ALLOW",
+        "allowReturnTraffic": true
+      },
+      "source": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "NETWORK",
+          "networkFilter": {
+            "networkIds": [
+              "17b07c27-e8ab-40ee-a01d-29d617fe5f85"
+            ],
+            "matchOpposite": false
+          }
+        }
+      },
+      "destination": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "IP_ADDRESS",
+          "ipAddressFilter": {
+            "type": "IP_ADDRESSES",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "IP_ADDRESS",
+                "value": "192.168.20.10"
+              }
+            ]
+          },
+          "portFilter": {
+            "type": "PORTS",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "PORT_NUMBER",
+                "value": 8123
+              }
+            ]
+          }
+        }
+      },
+      "ipProtocolScope": {
+        "ipVersion": "IPV4"
+      },
+      "loggingEnabled": false,
+      "metadata": {
+        "origin": "USER_DEFINED"
+      }
+    },
+    {
+      "id": "052162c4-933c-4e01-ac6b-27e9887a9e35",
+      "enabled": true,
+      "name": "Trusted to IoT Cast",
+      "index": 10004,
+      "action": {
+        "type": "ALLOW",
+        "allowReturnTraffic": true
+      },
+      "source": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "NETWORK",
+          "networkFilter": {
+            "networkIds": [
+              "17b07c27-e8ab-40ee-a01d-29d617fe5f85"
+            ],
+            "matchOpposite": false
+          }
+        }
+      },
+      "destination": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "NETWORK",
+          "networkFilter": {
+            "networkIds": [
+              "c92b2d7e-ec89-4404-8d3a-f1b131434b1f"
+            ],
+            "matchOpposite": false
+          },
+          "portFilter": {
+            "type": "PORTS",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "PORT_NUMBER",
+                "value": 5353
+              },
+              {
+                "type": "PORT_NUMBER",
+                "value": 8008
+              },
+              {
+                "type": "PORT_NUMBER",
+                "value": 8009
+              }
+            ]
+          }
+        }
+      },
+      "ipProtocolScope": {
+        "ipVersion": "IPV4"
+      },
+      "loggingEnabled": false,
+      "metadata": {
+        "origin": "USER_DEFINED"
+      }
+    },
+    {
+      "id": "87e2653d-08be-4104-b3d9-672a5aa412ba",
+      "enabled": true,
+      "name": "Trusted to Canon Printer",
+      "index": 10005,
+      "action": {
+        "type": "ALLOW",
+        "allowReturnTraffic": true
+      },
+      "source": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "NETWORK",
+          "networkFilter": {
+            "networkIds": [
+              "17b07c27-e8ab-40ee-a01d-29d617fe5f85"
+            ],
+            "matchOpposite": false
+          }
+        }
+      },
+      "destination": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "IP_ADDRESS",
+          "ipAddressFilter": {
+            "type": "IP_ADDRESSES",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "IP_ADDRESS",
+                "value": "192.168.20.72"
+              }
+            ]
+          },
+          "portFilter": {
+            "type": "PORTS",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "PORT_NUMBER",
+                "value": 631
+              },
+              {
+                "type": "PORT_NUMBER",
+                "value": 9100
+              },
+              {
+                "type": "PORT_NUMBER",
+                "value": 515
+              }
+            ]
+          }
+        }
+      },
+      "ipProtocolScope": {
+        "ipVersion": "IPV4"
+      },
+      "loggingEnabled": false,
+      "metadata": {
+        "origin": "USER_DEFINED"
+      }
+    },
+    {
+      "id": "03972139-2be1-4d21-a25e-6d38c6397f90",
+      "enabled": true,
+      "name": "Trusted to Hue Bridge",
+      "index": 10007,
+      "action": {
+        "type": "ALLOW",
+        "allowReturnTraffic": true
+      },
+      "source": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "NETWORK",
+          "networkFilter": {
+            "networkIds": [
+              "17b07c27-e8ab-40ee-a01d-29d617fe5f85"
+            ],
+            "matchOpposite": false
+          }
+        }
+      },
+      "destination": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "IP_ADDRESS",
+          "ipAddressFilter": {
+            "type": "IP_ADDRESSES",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "IP_ADDRESS",
+                "value": "192.168.20.21"
+              }
+            ]
+          },
+          "portFilter": {
+            "type": "PORTS",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "PORT_NUMBER",
+                "value": 5353
+              },
+              {
+                "type": "PORT_NUMBER",
+                "value": 80
+              },
+              {
+                "type": "PORT_NUMBER",
+                "value": 443
+              }
+            ]
+          }
+        }
+      },
+      "ipProtocolScope": {
+        "ipVersion": "IPV4"
+      },
+      "loggingEnabled": false,
+      "metadata": {
+        "origin": "USER_DEFINED"
+      }
+    },
+    {
+      "id": "b489bb19-07e3-479c-a3bc-012c80fcffa7",
+      "enabled": true,
+      "name": "Trusted to AirPlay",
+      "index": 10008,
+      "action": {
+        "type": "ALLOW",
+        "allowReturnTraffic": true
+      },
+      "source": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "NETWORK",
+          "networkFilter": {
+            "networkIds": [
+              "17b07c27-e8ab-40ee-a01d-29d617fe5f85"
+            ],
+            "matchOpposite": false
+          }
+        }
+      },
+      "destination": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "NETWORK",
+          "networkFilter": {
+            "networkIds": [
+              "c92b2d7e-ec89-4404-8d3a-f1b131434b1f"
+            ],
+            "matchOpposite": false
+          },
+          "portFilter": {
+            "type": "PORTS",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "PORT_NUMBER",
+                "value": 7100
+              },
+              {
+                "type": "PORT_NUMBER",
+                "value": 7000
+              },
+              {
+                "type": "PORT_NUMBER",
+                "value": 7001
+              }
+            ]
+          }
+        }
+      },
+      "ipProtocolScope": {
+        "ipVersion": "IPV4"
+      },
+      "loggingEnabled": false,
+      "metadata": {
+        "origin": "USER_DEFINED"
+      }
+    },
+    {
+      "id": "855bb867-4840-4161-ab47-cff3a5f5abeb",
+      "enabled": true,
+      "name": "Block Trusted to Servers SSH",
+      "index": 10009,
+      "action": {
+        "type": "BLOCK"
+      },
+      "source": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "NETWORK",
+          "networkFilter": {
+            "networkIds": [
+              "17b07c27-e8ab-40ee-a01d-29d617fe5f85"
+            ],
+            "matchOpposite": false
+          }
+        }
+      },
+      "destination": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "NETWORK",
+          "networkFilter": {
+            "networkIds": [
+              "23f3e137-6218-4ff2-a1bf-1da717f4d02e"
+            ],
+            "matchOpposite": false
+          },
+          "portFilter": {
+            "type": "PORTS",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "PORT_NUMBER",
+                "value": 22
+              }
+            ]
+          }
+        }
+      },
+      "ipProtocolScope": {
+        "ipVersion": "IPV4"
+      },
+      "loggingEnabled": false,
+      "metadata": {
+        "origin": "USER_DEFINED"
+      }
+    },
+    {
+      "id": "7c1a8511-4395-4a9d-8e2f-f1b7961bb63e",
+      "enabled": true,
+      "name": "Block IoT to Internal",
+      "index": 10010,
+      "action": {
+        "type": "BLOCK"
+      },
+      "source": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "NETWORK",
+          "networkFilter": {
+            "networkIds": [
+              "c92b2d7e-ec89-4404-8d3a-f1b131434b1f"
+            ],
+            "matchOpposite": false
+          }
+        }
+      },
+      "destination": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0"
+      },
+      "ipProtocolScope": {
+        "ipVersion": "IPV4"
+      },
+      "loggingEnabled": true,
+      "metadata": {
+        "origin": "USER_DEFINED"
+      }
+    },
+    {
+      "id": "b83a523a-8b4c-4c1d-a926-a568a78addef",
+      "enabled": true,
+      "name": "Block Guest to Internal",
+      "index": 10011,
+      "action": {
+        "type": "BLOCK"
+      },
+      "source": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "NETWORK",
+          "networkFilter": {
+            "networkIds": [
+              "44a1a677-1509-46fd-889c-1cb30c75e127"
+            ],
+            "matchOpposite": false
+          }
+        }
+      },
+      "destination": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0"
+      },
+      "ipProtocolScope": {
+        "ipVersion": "IPV4"
+      },
+      "loggingEnabled": true,
+      "metadata": {
+        "origin": "USER_DEFINED"
+      }
+    },
+    {
+      "id": "5ab1a44d-0cac-4580-8f09-147cd4938842",
+      "enabled": true,
+      "name": "Trusted to NAS SMB",
+      "index": 10012,
+      "action": {
+        "type": "ALLOW",
+        "allowReturnTraffic": true
+      },
+      "source": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "NETWORK",
+          "networkFilter": {
+            "networkIds": [
+              "17b07c27-e8ab-40ee-a01d-29d617fe5f85"
+            ],
+            "matchOpposite": false
+          }
+        }
+      },
+      "destination": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "IP_ADDRESS",
+          "ipAddressFilter": {
+            "type": "IP_ADDRESSES",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "IP_ADDRESS",
+                "value": "192.168.10.39"
+              }
+            ]
+          },
+          "portFilter": {
+            "type": "PORTS",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "PORT_NUMBER",
+                "value": 445
+              }
+            ]
+          }
+        }
+      },
+      "ipProtocolScope": {
+        "ipVersion": "IPV4"
+      },
+      "loggingEnabled": false,
+      "metadata": {
+        "origin": "USER_DEFINED"
+      }
+    },
+    {
+      "id": "bece981c-834f-4193-a123-779af5c15cc8",
+      "enabled": true,
+      "name": "Trusted to NAS NFS",
+      "index": 10013,
+      "action": {
+        "type": "ALLOW",
+        "allowReturnTraffic": true
+      },
+      "source": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "NETWORK",
+          "networkFilter": {
+            "networkIds": [
+              "17b07c27-e8ab-40ee-a01d-29d617fe5f85"
+            ],
+            "matchOpposite": false
+          }
+        }
+      },
+      "destination": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "IP_ADDRESS",
+          "ipAddressFilter": {
+            "type": "IP_ADDRESSES",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "IP_ADDRESS",
+                "value": "192.168.10.39"
+              }
+            ]
+          },
+          "portFilter": {
+            "type": "PORTS",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "PORT_NUMBER",
+                "value": 2049
+              },
+              {
+                "type": "PORT_NUMBER",
+                "value": 111
+              }
+            ]
+          }
+        }
+      },
+      "ipProtocolScope": {
+        "ipVersion": "IPV4"
+      },
+      "loggingEnabled": false,
+      "metadata": {
+        "origin": "USER_DEFINED"
+      }
+    },
+    {
+      "id": "ed7202ad-699d-477d-9655-e609fabd0d53",
+      "enabled": true,
+      "name": "Trusted to 3D Printer",
+      "index": 10014,
+      "action": {
+        "type": "ALLOW",
+        "allowReturnTraffic": true
+      },
+      "source": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "NETWORK",
+          "networkFilter": {
+            "networkIds": [
+              "17b07c27-e8ab-40ee-a01d-29d617fe5f85"
+            ],
+            "matchOpposite": false
+          }
+        }
+      },
+      "destination": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "IP_ADDRESS",
+          "ipAddressFilter": {
+            "type": "IP_ADDRESSES",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "IP_ADDRESS",
+                "value": "192.168.20.140"
+              }
+            ]
+          },
+          "portFilter": {
+            "type": "PORTS",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "PORT_NUMBER",
+                "value": 4408
+              },
+              {
+                "type": "PORT_NUMBER",
+                "value": 4409
+              },
+              {
+                "type": "PORT_NUMBER",
+                "value": 8080
+              },
+              {
+                "type": "PORT_NUMBER",
+                "value": 5000
+              },
+              {
+                "type": "PORT_NUMBER",
+                "value": 7125
+              },
+              {
+                "type": "PORT_NUMBER",
+                "value": 80
+              }
+            ]
+          }
+        }
+      },
+      "ipProtocolScope": {
+        "ipVersion": "IPV4"
+      },
+      "loggingEnabled": false,
+      "metadata": {
+        "origin": "USER_DEFINED"
+      }
+    },
+    {
+      "id": "3952a624-0c0d-3073-a720-a46f84924c8e",
+      "enabled": true,
+      "name": "Management Admin Access (Return)",
+      "index": 30000,
+      "action": {
+        "type": "ALLOW",
+        "allowReturnTraffic": true
+      },
+      "source": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0"
+      },
+      "destination": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "IP_ADDRESS",
+          "ipAddressFilter": {
+            "type": "IP_ADDRESSES",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "SUBNET",
+                "value": "192.168.1.0/24"
+              }
+            ]
+          }
+        }
+      },
+      "ipProtocolScope": {
+        "ipVersion": "IPV4"
+      },
+      "connectionStateFilter": [
+        "RELATED",
+        "ESTABLISHED"
+      ],
+      "loggingEnabled": false,
+      "metadata": {
+        "origin": "DERIVED"
+      }
+    },
+    {
+      "id": "9a111a7f-581c-3689-95f9-9fb668baebdc",
+      "enabled": true,
+      "name": "Trusted to Home Assistant (Return)",
+      "index": 30001,
+      "action": {
+        "type": "ALLOW",
+        "allowReturnTraffic": true
+      },
+      "source": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "IP_ADDRESS",
+          "ipAddressFilter": {
+            "type": "IP_ADDRESSES",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "IP_ADDRESS",
+                "value": "192.168.20.10"
+              }
+            ]
+          },
+          "portFilter": {
+            "type": "PORTS",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "PORT_NUMBER",
+                "value": 8123
+              }
+            ]
+          }
+        }
+      },
+      "destination": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "IP_ADDRESS",
+          "ipAddressFilter": {
+            "type": "IP_ADDRESSES",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "SUBNET",
+                "value": "192.168.50.0/24"
+              }
+            ]
+          }
+        }
+      },
+      "ipProtocolScope": {
+        "ipVersion": "IPV4"
+      },
+      "connectionStateFilter": [
+        "RELATED",
+        "ESTABLISHED"
+      ],
+      "loggingEnabled": false,
+      "metadata": {
+        "origin": "DERIVED"
+      }
+    },
+    {
+      "id": "fe41e4c2-b2d0-37c8-bc75-871fe3299da8",
+      "enabled": true,
+      "name": "Trusted to IoT Cast (Return)",
+      "index": 30002,
+      "action": {
+        "type": "ALLOW",
+        "allowReturnTraffic": true
+      },
+      "source": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "IP_ADDRESS",
+          "ipAddressFilter": {
+            "type": "IP_ADDRESSES",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "SUBNET",
+                "value": "192.168.20.0/24"
+              }
+            ]
+          },
+          "portFilter": {
+            "type": "PORTS",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "PORT_NUMBER",
+                "value": 5353
+              },
+              {
+                "type": "PORT_NUMBER",
+                "value": 8008
+              },
+              {
+                "type": "PORT_NUMBER",
+                "value": 8009
+              }
+            ]
+          }
+        }
+      },
+      "destination": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "IP_ADDRESS",
+          "ipAddressFilter": {
+            "type": "IP_ADDRESSES",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "SUBNET",
+                "value": "192.168.50.0/24"
+              }
+            ]
+          }
+        }
+      },
+      "ipProtocolScope": {
+        "ipVersion": "IPV4"
+      },
+      "connectionStateFilter": [
+        "RELATED",
+        "ESTABLISHED"
+      ],
+      "loggingEnabled": false,
+      "metadata": {
+        "origin": "DERIVED"
+      }
+    },
+    {
+      "id": "c6bce163-4a68-3433-9704-5985379d8128",
+      "enabled": true,
+      "name": "Trusted to Canon Printer (Return)",
+      "index": 30003,
+      "action": {
+        "type": "ALLOW",
+        "allowReturnTraffic": true
+      },
+      "source": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "IP_ADDRESS",
+          "ipAddressFilter": {
+            "type": "IP_ADDRESSES",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "IP_ADDRESS",
+                "value": "192.168.20.72"
+              }
+            ]
+          },
+          "portFilter": {
+            "type": "PORTS",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "PORT_NUMBER",
+                "value": 631
+              },
+              {
+                "type": "PORT_NUMBER",
+                "value": 9100
+              },
+              {
+                "type": "PORT_NUMBER",
+                "value": 515
+              }
+            ]
+          }
+        }
+      },
+      "destination": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "IP_ADDRESS",
+          "ipAddressFilter": {
+            "type": "IP_ADDRESSES",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "SUBNET",
+                "value": "192.168.50.0/24"
+              }
+            ]
+          }
+        }
+      },
+      "ipProtocolScope": {
+        "ipVersion": "IPV4"
+      },
+      "connectionStateFilter": [
+        "RELATED",
+        "ESTABLISHED"
+      ],
+      "loggingEnabled": false,
+      "metadata": {
+        "origin": "DERIVED"
+      }
+    },
+    {
+      "id": "8c9f8b3e-194f-3d32-a121-2b15d919475c",
+      "enabled": true,
+      "name": "Trusted to Hue Bridge (Return)",
+      "index": 30004,
+      "action": {
+        "type": "ALLOW",
+        "allowReturnTraffic": true
+      },
+      "source": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "IP_ADDRESS",
+          "ipAddressFilter": {
+            "type": "IP_ADDRESSES",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "IP_ADDRESS",
+                "value": "192.168.20.21"
+              }
+            ]
+          },
+          "portFilter": {
+            "type": "PORTS",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "PORT_NUMBER",
+                "value": 5353
+              },
+              {
+                "type": "PORT_NUMBER",
+                "value": 80
+              },
+              {
+                "type": "PORT_NUMBER",
+                "value": 443
+              }
+            ]
+          }
+        }
+      },
+      "destination": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "IP_ADDRESS",
+          "ipAddressFilter": {
+            "type": "IP_ADDRESSES",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "SUBNET",
+                "value": "192.168.50.0/24"
+              }
+            ]
+          }
+        }
+      },
+      "ipProtocolScope": {
+        "ipVersion": "IPV4"
+      },
+      "connectionStateFilter": [
+        "RELATED",
+        "ESTABLISHED"
+      ],
+      "loggingEnabled": false,
+      "metadata": {
+        "origin": "DERIVED"
+      }
+    },
+    {
+      "id": "e72adb08-3e0d-35d3-ae7a-09f59069147f",
+      "enabled": true,
+      "name": "Trusted to AirPlay (Return)",
+      "index": 30005,
+      "action": {
+        "type": "ALLOW",
+        "allowReturnTraffic": true
+      },
+      "source": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "IP_ADDRESS",
+          "ipAddressFilter": {
+            "type": "IP_ADDRESSES",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "SUBNET",
+                "value": "192.168.20.0/24"
+              }
+            ]
+          },
+          "portFilter": {
+            "type": "PORTS",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "PORT_NUMBER",
+                "value": 7100
+              },
+              {
+                "type": "PORT_NUMBER",
+                "value": 7000
+              },
+              {
+                "type": "PORT_NUMBER",
+                "value": 7001
+              }
+            ]
+          }
+        }
+      },
+      "destination": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "IP_ADDRESS",
+          "ipAddressFilter": {
+            "type": "IP_ADDRESSES",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "SUBNET",
+                "value": "192.168.50.0/24"
+              }
+            ]
+          }
+        }
+      },
+      "ipProtocolScope": {
+        "ipVersion": "IPV4"
+      },
+      "connectionStateFilter": [
+        "RELATED",
+        "ESTABLISHED"
+      ],
+      "loggingEnabled": false,
+      "metadata": {
+        "origin": "DERIVED"
+      }
+    },
+    {
+      "id": "7db811eb-d1d7-3579-b31f-ecc946dae727",
+      "enabled": true,
+      "name": "Trusted to NAS SMB (Return)",
+      "index": 30006,
+      "action": {
+        "type": "ALLOW",
+        "allowReturnTraffic": true
+      },
+      "source": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "IP_ADDRESS",
+          "ipAddressFilter": {
+            "type": "IP_ADDRESSES",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "IP_ADDRESS",
+                "value": "192.168.10.39"
+              }
+            ]
+          },
+          "portFilter": {
+            "type": "PORTS",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "PORT_NUMBER",
+                "value": 445
+              }
+            ]
+          }
+        }
+      },
+      "destination": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "IP_ADDRESS",
+          "ipAddressFilter": {
+            "type": "IP_ADDRESSES",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "SUBNET",
+                "value": "192.168.50.0/24"
+              }
+            ]
+          }
+        }
+      },
+      "ipProtocolScope": {
+        "ipVersion": "IPV4"
+      },
+      "connectionStateFilter": [
+        "RELATED",
+        "ESTABLISHED"
+      ],
+      "loggingEnabled": false,
+      "metadata": {
+        "origin": "DERIVED"
+      }
+    },
+    {
+      "id": "24e80b61-a81a-3bee-83f2-928d895a88d9",
+      "enabled": true,
+      "name": "Trusted to NAS NFS (Return)",
+      "index": 30007,
+      "action": {
+        "type": "ALLOW",
+        "allowReturnTraffic": true
+      },
+      "source": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "IP_ADDRESS",
+          "ipAddressFilter": {
+            "type": "IP_ADDRESSES",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "IP_ADDRESS",
+                "value": "192.168.10.39"
+              }
+            ]
+          },
+          "portFilter": {
+            "type": "PORTS",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "PORT_NUMBER",
+                "value": 2049
+              },
+              {
+                "type": "PORT_NUMBER",
+                "value": 111
+              }
+            ]
+          }
+        }
+      },
+      "destination": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "IP_ADDRESS",
+          "ipAddressFilter": {
+            "type": "IP_ADDRESSES",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "SUBNET",
+                "value": "192.168.50.0/24"
+              }
+            ]
+          }
+        }
+      },
+      "ipProtocolScope": {
+        "ipVersion": "IPV4"
+      },
+      "connectionStateFilter": [
+        "RELATED",
+        "ESTABLISHED"
+      ],
+      "loggingEnabled": false,
+      "metadata": {
+        "origin": "DERIVED"
+      }
+    },
+    {
+      "id": "e15f570b-e58e-3056-a9f4-0bc2f7043220",
+      "enabled": true,
+      "name": "Trusted to 3D Printer (Return)",
+      "index": 30008,
+      "action": {
+        "type": "ALLOW",
+        "allowReturnTraffic": true
+      },
+      "source": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "IP_ADDRESS",
+          "ipAddressFilter": {
+            "type": "IP_ADDRESSES",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "IP_ADDRESS",
+                "value": "192.168.20.140"
+              }
+            ]
+          },
+          "portFilter": {
+            "type": "PORTS",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "PORT_NUMBER",
+                "value": 4408
+              },
+              {
+                "type": "PORT_NUMBER",
+                "value": 4409
+              },
+              {
+                "type": "PORT_NUMBER",
+                "value": 8080
+              },
+              {
+                "type": "PORT_NUMBER",
+                "value": 5000
+              },
+              {
+                "type": "PORT_NUMBER",
+                "value": 7125
+              },
+              {
+                "type": "PORT_NUMBER",
+                "value": 80
+              }
+            ]
+          }
+        }
+      },
+      "destination": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "IP_ADDRESS",
+          "ipAddressFilter": {
+            "type": "IP_ADDRESSES",
+            "matchOpposite": false,
+            "items": [
+              {
+                "type": "SUBNET",
+                "value": "192.168.50.0/24"
+              }
+            ]
+          }
+        }
+      },
+      "ipProtocolScope": {
+        "ipVersion": "IPV4"
+      },
+      "connectionStateFilter": [
+        "RELATED",
+        "ESTABLISHED"
+      ],
+      "loggingEnabled": false,
+      "metadata": {
+        "origin": "DERIVED"
+      }
+    },
+    {
+      "id": "13786903-b2f2-4304-ac30-01ddf08260a6",
+      "enabled": true,
+      "name": "Allow All Traffic",
+      "index": 2147483647,
+      "action": {
+        "type": "ALLOW",
+        "allowReturnTraffic": true
+      },
+      "source": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0"
+      },
+      "destination": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0"
+      },
+      "ipProtocolScope": {
+        "ipVersion": "IPV4_AND_IPV6"
+      },
+      "loggingEnabled": false,
+      "metadata": {
+        "origin": "SYSTEM_DEFINED",
+        "configurable": true
+      }
+    },
+    {
+      "id": "e43a8256-ba11-4436-9db7-1fceaca59b6e",
+      "enabled": true,
+      "name": "Block Invalid Traffic",
+      "index": 30000,
+      "action": {
+        "type": "BLOCK"
+      },
+      "source": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0"
+      },
+      "destination": {
+        "zoneId": "996a23dd-32e0-4ed9-a206-a316aa00c8a8"
+      },
+      "ipProtocolScope": {
+        "ipVersion": "IPV4_AND_IPV6"
+      },
+      "connectionStateFilter": [
+        "INVALID"
+      ],
+      "loggingEnabled": false,
+      "metadata": {
+        "origin": "SYSTEM_DEFINED",
+        "configurable": true
+      }
+    },
+    {
+      "id": "c7a90b81-c09c-413c-8dc5-3eeddcb4fe43",
+      "enabled": true,
+      "name": "Allow All Traffic",
+      "index": 2147483647,
+      "action": {
+        "type": "ALLOW",
+        "allowReturnTraffic": true
+      },
+      "source": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0"
+      },
+      "destination": {
+        "zoneId": "996a23dd-32e0-4ed9-a206-a316aa00c8a8"
+      },
+      "ipProtocolScope": {
+        "ipVersion": "IPV4_AND_IPV6"
+      },
+      "loggingEnabled": false,
+      "metadata": {
+        "origin": "SYSTEM_DEFINED",
+        "configurable": true
+      }
+    },
+    {
+      "enabled": true,
+      "name": "K8s Pi Interconnect",
+      "index": 10000,
+      "action": {
+        "type": "ALLOW",
+        "allowReturnTraffic": false
+      },
+      "source": {
+        "zoneId": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+        "trafficFilter": {
+          "type": "IP_ADDRESS",
+          "ipAddressFilter": {
+            "type": "TRAFFIC_MATCHING_LIST",
+            "matchOpposite": false,
+            "trafficMatchingListId": "fa3ac73e-32c8-428e-bc4e-e99800f70b74"
+          }
+        }
+      },
+      "destination": {
+        "zoneId": "8704b50e-9d52-4fc2-bfe9-6c303047ffca",
+        "trafficFilter": {
+          "type": "IP_ADDRESS",
+          "ipAddressFilter": {
+            "type": "TRAFFIC_MATCHING_LIST",
+            "matchOpposite": false,
+            "trafficMatchingListId": "007f375c-1e74-440d-b898-56595f633ac0"
+          }
+        }
+      },
+      "ipProtocolScope": {
+        "ipVersion": "IPV4"
+      },
+      "loggingEnabled": true,
+      "metadata": {
+        "origin": "USER_DEFINED"
+      }
+    }
+  ]
+}

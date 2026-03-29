@@ -1,0 +1,75 @@
+{
+  "offset": 0,
+  "limit": 25,
+  "count": 6,
+  "totalCount": 6,
+  "data": [
+    {
+      "id": "8704b50e-9d52-4fc2-bfe9-6c303047ffca",
+      "name": "Gateway",
+      "networkIds": [],
+      "metadata": {
+        "origin": "SYSTEM_DEFINED",
+        "configurable": false
+      }
+    },
+    {
+      "id": "996a23dd-32e0-4ed9-a206-a316aa00c8a8",
+      "name": "External",
+      "networkIds": [
+        "6a57d935-cec8-4240-9f35-0ebf35258f0e",
+        "4cda14f4-87a2-44ad-a77e-f60af93a559e"
+      ],
+      "metadata": {
+        "origin": "SYSTEM_DEFINED",
+        "configurable": false
+      }
+    },
+    {
+      "id": "ddc4383a-1a3e-4f45-9ec4-73998ca6f487",
+      "name": "Vpn",
+      "networkIds": [
+        "f6659324-7978-42fb-86ea-ae1cb9207ce6"
+      ],
+      "metadata": {
+        "origin": "SYSTEM_DEFINED",
+        "configurable": false
+      }
+    },
+    {
+      "id": "0db8f657-7521-4faa-9398-9f72fd5bf2b0",
+      "name": "Internal",
+      "networkIds": [
+        "cc212f02-2406-432e-a394-d46dd8358955",
+        "23f3e137-6218-4ff2-a1bf-1da717f4d02e",
+        "c92b2d7e-ec89-4404-8d3a-f1b131434b1f",
+        "44a1a677-1509-46fd-889c-1cb30c75e127",
+        "0076da92-73b0-4528-9dd2-d58e43b326fb",
+        "17b07c27-e8ab-40ee-a01d-29d617fe5f85",
+        "aa1c4c1d-0087-4a59-93ff-ddf1fed09bb7"
+      ],
+      "metadata": {
+        "origin": "SYSTEM_DEFINED",
+        "configurable": true
+      }
+    },
+    {
+      "id": "16955f28-e82c-4144-b5a6-412094a0368e",
+      "name": "Dmz",
+      "networkIds": [],
+      "metadata": {
+        "origin": "SYSTEM_DEFINED",
+        "configurable": true
+      }
+    },
+    {
+      "id": "207fdcca-1053-4205-ae9f-eae8d06dbe83",
+      "name": "Hotspot",
+      "networkIds": [],
+      "metadata": {
+        "origin": "SYSTEM_DEFINED",
+        "configurable": true
+      }
+    }
+  ]
+}

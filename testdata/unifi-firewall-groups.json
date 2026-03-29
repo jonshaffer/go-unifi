@@ -1,0 +1,220 @@
+{
+  "meta": {
+    "rc": "ok"
+  },
+  "data": [
+    {
+      "group_members": [
+        "192.168.1.30",
+        "192.168.1.31",
+        "192.168.1.32",
+        "192.168.1.33"
+      ],
+      "name": "K8s Pi",
+      "site_id": "60382095d71e2805faf1c455",
+      "external_id": "007f375c-1e74-440d-b898-56595f633ac0",
+      "_id": "6039a6d8d71e2805faf1f025",
+      "group_type": "address-group"
+    },
+    {
+      "group_members": [
+        "192.168.1.33"
+      ],
+      "name": "PiK8sControl",
+      "site_id": "60382095d71e2805faf1c455",
+      "external_id": "fa3ac73e-32c8-428e-bc4e-e99800f70b74",
+      "_id": "643c9920daaa95042f85c0dd",
+      "group_type": "address-group"
+    },
+    {
+      "group_members": [
+        "192.168.1.114",
+        "192.168.10.39"
+      ],
+      "name": "SynologyLarge",
+      "site_id": "60382095d71e2805faf1c455",
+      "external_id": "2639b641-7cd1-4c13-a402-4e2eec833b86",
+      "_id": "66e9d634b2de3a201248d313",
+      "group_type": "address-group"
+    },
+    {
+      "group_members": [
+        "10.0.100.0/24"
+      ],
+      "name": "WireGuard VPN",
+      "site_id": "60382095d71e2805faf1c455",
+      "external_id": "e5d3e422-116f-47ef-84d4-c7874730d05b",
+      "_id": "66e9d6adb2de3a201248d33c",
+      "group_type": "address-group"
+    },
+    {
+      "group_members": [
+        "21115",
+        "21116",
+        "21117",
+        "21118",
+        "21119",
+        "8000"
+      ],
+      "name": "RustDesk Server Ports",
+      "site_id": "60382095d71e2805faf1c455",
+      "external_id": "06400025-e8e0-41ca-b0e7-1b3dcfce0422",
+      "_id": "67ae52ca67521f26a429bcd0",
+      "group_type": "port-group"
+    },
+    {
+      "group_members": [
+        "192.168.1.108"
+      ],
+      "name": "RTX2070",
+      "site_id": "60382095d71e2805faf1c455",
+      "external_id": "a2dfffdc-4902-4915-8cc9-5d9c5e8eb25f",
+      "_id": "67afbecf67521f26a42a02ea",
+      "group_type": "address-group"
+    },
+    {
+      "group_members": [
+        "11434"
+      ],
+      "name": "Ollama",
+      "site_id": "60382095d71e2805faf1c455",
+      "external_id": "60aba7b7-d6d7-45fe-b2ef-e813cee11c26",
+      "_id": "67afbed967521f26a42a02ec",
+      "group_type": "port-group"
+    },
+    {
+      "group_members": [
+        "10.0.0.0/8",
+        "172.16.0.0/12",
+        "192.168.0.0/16"
+      ],
+      "name": "RFC1918",
+      "site_id": "60382095d71e2805faf1c455",
+      "external_id": "85f093e5-acae-4f47-93ca-1ee2ff263c47",
+      "_id": "695c0834f62c406ef08f6211",
+      "group_type": "address-group"
+    },
+    {
+      "group_members": [
+        "192.168.10.10",
+        "192.168.10.20",
+        "192.168.20.10"
+      ],
+      "name": "Internal Services",
+      "site_id": "60382095d71e2805faf1c455",
+      "external_id": "07bdb5d7-185f-4ed7-9de7-49cd6fb23183",
+      "_id": "695c0856f62c406ef08f6214",
+      "group_type": "address-group"
+    },
+    {
+      "group_members": [
+        "80",
+        "443",
+        "8123",
+        "8080",
+        "3000"
+      ],
+      "name": "Web Services",
+      "site_id": "60382095d71e2805faf1c455",
+      "external_id": "e38ecbab-3e8d-4bc6-914a-ce59762dc07a",
+      "_id": "695c087ef62c406ef08f621b",
+      "group_type": "port-group"
+    },
+    {
+      "group_members": [
+        "111",
+        "2049"
+      ],
+      "name": "NFS Ports",
+      "site_id": "60382095d71e2805faf1c455",
+      "external_id": "38339525-47de-4860-9751-6c78cab9f038",
+      "_id": "695c0890f62c406ef08f621e",
+      "group_type": "port-group"
+    },
+    {
+      "group_members": [
+        "53"
+      ],
+      "name": "DNS Ports",
+      "site_id": "60382095d71e2805faf1c455",
+      "external_id": "d2951cf1-590e-435f-a822-fa976dc60ba3",
+      "_id": "695c089ff62c406ef08f6221",
+      "group_type": "port-group"
+    },
+    {
+      "group_members": [
+        "192.168.1.30",
+        "192.168.1.31",
+        "192.168.1.32"
+      ],
+      "name": "Proxmox Servers",
+      "site_id": "60382095d71e2805faf1c455",
+      "external_id": "733a9b81-a4fe-4281-8fb8-c2e069e78a77",
+      "_id": "69a05f4f51dbbbedd750c2ac",
+      "group_type": "address-group"
+    },
+    {
+      "group_members": [
+        "8008",
+        "8009",
+        "5353"
+      ],
+      "name": "Cast Ports",
+      "site_id": "60382095d71e2805faf1c455",
+      "external_id": "886516bb-169b-4de9-afda-e4eaf2ef0fd5",
+      "_id": "69a444f751dbbbedd7516d6c",
+      "group_type": "port-group"
+    },
+    {
+      "group_members": [
+        "631",
+        "9100",
+        "515"
+      ],
+      "name": "Printer Ports",
+      "site_id": "60382095d71e2805faf1c455",
+      "external_id": "6f25d170-6182-4b90-9b06-4cc5b8285f03",
+      "_id": "69a444f751dbbbedd7516d6f",
+      "group_type": "port-group"
+    },
+    {
+      "group_members": [
+        "80",
+        "8080",
+        "5000",
+        "4408",
+        "4409",
+        "7125"
+      ],
+      "name": "3D Printer Ports",
+      "site_id": "60382095d71e2805faf1c455",
+      "external_id": "acca25ec-9d86-4e18-a8ac-a7f2d8fb625e",
+      "_id": "69a444f751dbbbedd7516d72",
+      "group_type": "port-group"
+    },
+    {
+      "group_members": [
+        "80",
+        "443",
+        "5353"
+      ],
+      "name": "Hue Ports",
+      "site_id": "60382095d71e2805faf1c455",
+      "external_id": "9b7ee52a-b782-4329-a0e4-ec900f772d81",
+      "_id": "69a444f751dbbbedd7516d75",
+      "group_type": "port-group"
+    },
+    {
+      "group_members": [
+        "7000",
+        "5353",
+        "49152-65535"
+      ],
+      "name": "AirPlay Ports",
+      "site_id": "60382095d71e2805faf1c455",
+      "external_id": "404b648e-932b-43d1-b4e0-91bcefd9ed02",
+      "_id": "69a444f951dbbbedd7516d78",
+      "group_type": "port-group"
+    }
+  ]
+}
