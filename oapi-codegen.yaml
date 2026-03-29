@@ -1,0 +1,4 @@
+package: network
+output: unifi/network/firewall.generated.go
+generate:
+  models: true

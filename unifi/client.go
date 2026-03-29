@@ -80,9 +80,13 @@ const (
 	AppAccess  Application = "access"
 )
 
-// do executes an HTTP request against the UniFi controller.
+// Do executes an HTTP request against the UniFi controller.
 // The path should be relative to the application namespace
 // (e.g., "/v2/api/site/default/static-dns" for Network app).
+func (c *Client) Do(ctx context.Context, method string, app Application, path string, body any, result any) error {
+	return c.do(ctx, method, app, path, body, result)
+}
+
 func (c *Client) do(ctx context.Context, method string, app Application, path string, body any, result any) error {
 	fullPath := fmt.Sprintf("/proxy/%s%s", app, path)
 	reqURL := c.baseURL.JoinPath(fullPath).String()
