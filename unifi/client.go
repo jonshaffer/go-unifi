@@ -89,7 +89,9 @@ func (c *Client) Do(ctx context.Context, method string, app Application, path st
 
 func (c *Client) do(ctx context.Context, method string, app Application, path string, body any, result any) error {
 	fullPath := fmt.Sprintf("/proxy/%s%s", app, path)
-	reqURL := c.baseURL.JoinPath(fullPath).String()
+	// Use string concatenation rather than JoinPath to preserve query parameters.
+	// JoinPath percent-encodes '?' which breaks pagination and ordering queries.
+	reqURL := strings.TrimRight(c.baseURL.String(), "/") + fullPath
 
 	var bodyReader io.Reader
 	if body != nil {
