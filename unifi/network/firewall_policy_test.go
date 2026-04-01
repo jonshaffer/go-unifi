@@ -309,42 +309,68 @@ func TestGetPolicyOrdering(t *testing.T) {
 	}
 }
 
-func TestSetPolicyOrdering(t *testing.T) {
-	srv := httptest.NewServer(policyRouter(t, func(w http.ResponseWriter, r *http.Request) {
-		if r.Method != http.MethodPut {
-			t.Errorf("method = %s, want PUT", r.Method)
-		}
+// TestSetPolicyOrdering is removed — the Integration API PUT ordering endpoint
+// returns 500 on the controller. Use BatchReorderPolicies (v2 API) instead.
 
-		if !strings.Contains(r.URL.Path, "/ordering") {
-			t.Errorf("expected /ordering in path, got: %s", r.URL.Path)
+func TestListFirewallPoliciesV2(t *testing.T) {
+	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path != "/proxy/network/v2/api/site/default/firewall-policies" {
+			t.Errorf("unexpected path: %s", r.URL.Path)
 		}
-		if r.URL.Query().Get("sourceFirewallZoneId") != "zone-lan" {
-			t.Errorf("expected sourceFirewallZoneId=zone-lan, got: %s", r.URL.RawQuery)
-		}
-		if r.URL.Query().Get("destinationFirewallZoneId") != "zone-wan" {
-			t.Errorf("expected destinationFirewallZoneId=zone-wan, got: %s", r.URL.RawQuery)
-		}
-
-		var body PolicyOrdering
-		json.NewDecoder(r.Body).Decode(&body)
-		before := body.OrderedPolicyIDs.BeforeSystemDefined
-		if len(before) != 3 {
-			t.Fatalf("body has %d policy IDs, want 3", len(before))
-		}
-		if before[0] != "policy-3" {
-			t.Errorf("body.BeforeSystemDefined[0] = %q, want policy-3", before[0])
-		}
-
-		w.WriteHeader(http.StatusOK)
+		json.NewEncoder(w).Encode([]FirewallPolicyV2{
+			{ID: "aaa111", Name: "Block SSH", Index: 10000},
+			{ID: "bbb222", Name: "Allow All", Index: 40000},
+		})
 	}))
 	defer srv.Close()
 
 	app := testApp(srv)
-	var ordering PolicyOrdering
-	ordering.OrderedPolicyIDs.BeforeSystemDefined = []string{"policy-3", "policy-1", "policy-2"}
-	ordering.OrderedPolicyIDs.AfterSystemDefined = []string{}
-	err := app.SetPolicyOrdering(context.Background(), "zone-lan", "zone-wan", ordering)
+	policies, err := app.ListFirewallPoliciesV2(context.Background())
 	if err != nil {
-		t.Fatalf("SetPolicyOrdering: %v", err)
+		t.Fatalf("ListFirewallPoliciesV2: %v", err)
+	}
+	if len(policies) != 2 {
+		t.Fatalf("got %d policies, want 2", len(policies))
+	}
+	if policies[0].ID != "aaa111" {
+		t.Errorf("policies[0].ID = %q, want aaa111", policies[0].ID)
+	}
+}
+
+func TestBatchReorderPolicies(t *testing.T) {
+	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path != "/proxy/network/v2/api/site/default/firewall-policies/batch-reorder" {
+			t.Errorf("unexpected path: %s", r.URL.Path)
+		}
+		if r.Method != http.MethodPut {
+			t.Errorf("method = %s, want PUT", r.Method)
+		}
+
+		var body BatchReorderRequest
+		json.NewDecoder(r.Body).Decode(&body)
+		if body.SourceZoneID != "zone-src" {
+			t.Errorf("SourceZoneID = %q, want zone-src", body.SourceZoneID)
+		}
+		if len(body.BeforePredefinedIDs) != 2 {
+			t.Fatalf("BeforePredefinedIDs has %d items, want 2", len(body.BeforePredefinedIDs))
+		}
+		if body.BeforePredefinedIDs[0] != "policy-b" {
+			t.Errorf("BeforePredefinedIDs[0] = %q, want policy-b", body.BeforePredefinedIDs[0])
+		}
+
+		w.WriteHeader(http.StatusOK)
+		json.NewEncoder(w).Encode([]map[string]any{})
+	}))
+	defer srv.Close()
+
+	app := testApp(srv)
+	err := app.BatchReorderPolicies(context.Background(), BatchReorderRequest{
+		BeforePredefinedIDs: []string{"policy-b", "policy-a"},
+		AfterPredefinedIDs:  []string{},
+		SourceZoneID:        "zone-src",
+		DestinationZoneID:   "zone-dst",
+	})
+	if err != nil {
+		t.Fatalf("BatchReorderPolicies: %v", err)
 	}
 }

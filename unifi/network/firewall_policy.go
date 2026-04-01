@@ -126,9 +126,9 @@ func (a *App) DeleteFirewallPolicy(ctx context.Context, id string) error {
 	return a.Client.Do(ctx, http.MethodDelete, unifi.AppNetwork, path, nil, nil)
 }
 
-// PolicyOrdering represents the evaluation order for a zone pair.
-// The API nests policy IDs into beforeSystemDefined (evaluated before system
-// policies like "Allow All") and afterSystemDefined (evaluated after).
+// PolicyOrdering represents the evaluation order for a zone pair (Integration API).
+// NOTE: The Integration API PUT endpoint is broken (returns 500). Use
+// BatchReorderPolicies (v2 REST API) for writes. GET still works for reads.
 type PolicyOrdering struct {
 	OrderedPolicyIDs struct {
 		BeforeSystemDefined []string `json:"beforeSystemDefined"`
@@ -137,6 +137,7 @@ type PolicyOrdering struct {
 }
 
 // GetPolicyOrdering returns the evaluation order for policies between two zones.
+// Uses the Integration API (GET works, PUT is broken).
 func (a *App) GetPolicyOrdering(ctx context.Context, srcZoneID, dstZoneID string) (*PolicyOrdering, error) {
 	basePath, err := a.policyPath(ctx)
 	if err != nil {
@@ -150,12 +151,45 @@ func (a *App) GetPolicyOrdering(ctx context.Context, srcZoneID, dstZoneID string
 	return &ordering, nil
 }
 
-// SetPolicyOrdering sets the evaluation order for policies between two zones.
-func (a *App) SetPolicyOrdering(ctx context.Context, srcZoneID, dstZoneID string, ordering PolicyOrdering) error {
-	basePath, err := a.policyPath(ctx)
-	if err != nil {
-		return err
+// --- v2 REST API: batch reorder (working endpoint, used by the UniFi UI) ---
+
+// FirewallPolicyV2 is the v2 REST API representation of a firewall policy.
+// Uses MongoDB ObjectIDs (_id) rather than Integration API UUIDs.
+type FirewallPolicyV2 struct {
+	ID     string `json:"_id"`
+	Name   string `json:"name"`
+	Index  int    `json:"index"`
+	Source struct {
+		ZoneID string `json:"zone_id"`
+	} `json:"source"`
+	Destination struct {
+		ZoneID string `json:"zone_id"`
+	} `json:"destination"`
+}
+
+// BatchReorderRequest is the request body for the v2 batch-reorder endpoint.
+type BatchReorderRequest struct {
+	BeforePredefinedIDs []string `json:"before_predefined_ids"`
+	AfterPredefinedIDs  []string `json:"after_predefined_ids"`
+	SourceZoneID        string   `json:"source_zone_id"`
+	DestinationZoneID   string   `json:"destination_zone_id"`
+}
+
+// ListFirewallPoliciesV2 returns all firewall policies from the v2 REST API.
+// The v2 API uses MongoDB ObjectIDs and a different field naming convention.
+func (a *App) ListFirewallPoliciesV2(ctx context.Context) ([]FirewallPolicyV2, error) {
+	path := fmt.Sprintf("/v2/api/site/%s/firewall-policies", a.Site)
+	var policies []FirewallPolicyV2
+	if err := a.Client.Do(ctx, http.MethodGet, unifi.AppNetwork, path, nil, &policies); err != nil {
+		return nil, fmt.Errorf("listing v2 firewall policies: %w", err)
 	}
-	path := fmt.Sprintf("%s/ordering?sourceFirewallZoneId=%s&destinationFirewallZoneId=%s", basePath, srcZoneID, dstZoneID)
-	return a.Client.Do(ctx, http.MethodPut, unifi.AppNetwork, path, ordering, nil)
+	return policies, nil
+}
+
+// BatchReorderPolicies reorders firewall policies for a zone pair using the
+// v2 REST API. This is the endpoint the UniFi UI uses; the Integration API
+// ordering PUT endpoint is broken (returns 500).
+func (a *App) BatchReorderPolicies(ctx context.Context, req BatchReorderRequest) error {
+	path := fmt.Sprintf("/v2/api/site/%s/firewall-policies/batch-reorder", a.Site)
+	return a.Client.Do(ctx, http.MethodPut, unifi.AppNetwork, path, req, nil)
 }
