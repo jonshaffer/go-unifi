@@ -127,8 +127,13 @@ func (a *App) DeleteFirewallPolicy(ctx context.Context, id string) error {
 }
 
 // PolicyOrdering represents the evaluation order for a zone pair.
+// The API nests policy IDs into beforeSystemDefined (evaluated before system
+// policies like "Allow All") and afterSystemDefined (evaluated after).
 type PolicyOrdering struct {
-	OrderedPolicyIDs []string `json:"orderedFirewallPolicyIds"`
+	OrderedPolicyIDs struct {
+		BeforeSystemDefined []string `json:"beforeSystemDefined"`
+		AfterSystemDefined  []string `json:"afterSystemDefined"`
+	} `json:"orderedFirewallPolicyIds"`
 }
 
 // GetPolicyOrdering returns the evaluation order for policies between two zones.

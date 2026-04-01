@@ -285,9 +285,10 @@ func TestGetPolicyOrdering(t *testing.T) {
 			t.Errorf("expected destinationFirewallZoneId=zone-wan, got: %s", r.URL.RawQuery)
 		}
 
-		json.NewEncoder(w).Encode(PolicyOrdering{
-			OrderedPolicyIDs: []string{"policy-2", "policy-1", "policy-3"},
-		})
+		var resp PolicyOrdering
+		resp.OrderedPolicyIDs.BeforeSystemDefined = []string{"policy-2", "policy-1", "policy-3"}
+		resp.OrderedPolicyIDs.AfterSystemDefined = []string{}
+		json.NewEncoder(w).Encode(resp)
 	}))
 	defer srv.Close()
 
@@ -296,14 +297,15 @@ func TestGetPolicyOrdering(t *testing.T) {
 	if err != nil {
 		t.Fatalf("GetPolicyOrdering: %v", err)
 	}
-	if len(ordering.OrderedPolicyIDs) != 3 {
-		t.Fatalf("got %d policy IDs, want 3", len(ordering.OrderedPolicyIDs))
+	before := ordering.OrderedPolicyIDs.BeforeSystemDefined
+	if len(before) != 3 {
+		t.Fatalf("got %d policy IDs, want 3", len(before))
 	}
-	if ordering.OrderedPolicyIDs[0] != "policy-2" {
-		t.Errorf("OrderedPolicyIDs[0] = %q, want policy-2", ordering.OrderedPolicyIDs[0])
+	if before[0] != "policy-2" {
+		t.Errorf("BeforeSystemDefined[0] = %q, want policy-2", before[0])
 	}
-	if ordering.OrderedPolicyIDs[1] != "policy-1" {
-		t.Errorf("OrderedPolicyIDs[1] = %q, want policy-1", ordering.OrderedPolicyIDs[1])
+	if before[1] != "policy-1" {
+		t.Errorf("BeforeSystemDefined[1] = %q, want policy-1", before[1])
 	}
 }
 
@@ -325,11 +327,12 @@ func TestSetPolicyOrdering(t *testing.T) {
 
 		var body PolicyOrdering
 		json.NewDecoder(r.Body).Decode(&body)
-		if len(body.OrderedPolicyIDs) != 3 {
-			t.Fatalf("body has %d policy IDs, want 3", len(body.OrderedPolicyIDs))
+		before := body.OrderedPolicyIDs.BeforeSystemDefined
+		if len(before) != 3 {
+			t.Fatalf("body has %d policy IDs, want 3", len(before))
 		}
-		if body.OrderedPolicyIDs[0] != "policy-3" {
-			t.Errorf("body.OrderedPolicyIDs[0] = %q, want policy-3", body.OrderedPolicyIDs[0])
+		if before[0] != "policy-3" {
+			t.Errorf("body.BeforeSystemDefined[0] = %q, want policy-3", before[0])
 		}
 
 		w.WriteHeader(http.StatusOK)
@@ -337,9 +340,10 @@ func TestSetPolicyOrdering(t *testing.T) {
 	defer srv.Close()
 
 	app := testApp(srv)
-	err := app.SetPolicyOrdering(context.Background(), "zone-lan", "zone-wan", PolicyOrdering{
-		OrderedPolicyIDs: []string{"policy-3", "policy-1", "policy-2"},
-	})
+	var ordering PolicyOrdering
+	ordering.OrderedPolicyIDs.BeforeSystemDefined = []string{"policy-3", "policy-1", "policy-2"}
+	ordering.OrderedPolicyIDs.AfterSystemDefined = []string{}
+	err := app.SetPolicyOrdering(context.Background(), "zone-lan", "zone-wan", ordering)
 	if err != nil {
 		t.Fatalf("SetPolicyOrdering: %v", err)
 	}
